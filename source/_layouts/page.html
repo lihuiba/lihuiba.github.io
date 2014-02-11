@@ -1,0 +1,12 @@
+---
+layout: default
+---
+
+{% if page.title and page.show_title != false %}
+<h1 class="title indent">
+  {% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}
+</h1>
+<hr class="divider">
+{% endif %}
+
+{{ content }}
