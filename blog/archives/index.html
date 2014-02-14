@@ -11,7 +11,7 @@
     <title>Blog index - Huiba Li</title>
     <meta name="author" content="Huiba Li">
     
-    <meta name="description" content=" Blog Index 2014 Feb 12 A source committing issue in oscailte theme Feb 12 My Projects Feb 11 GitHub Pages about ">
+    <meta name="description" content=" Blog Index 2014 Feb 12 A source committing issue in oscailte theme Feb 11 GitHub Pages about ">
     
     <meta name="viewport" content="width=device-width">
     
@@ -100,27 +100,6 @@
 <div class="grid">
 
   <div class="grid__item one-fifth palm-one-whole">
-    <time datetime="2014-02-12T10:48:27+08:00" pubdate>
-      <span class='month'>Feb</span> <span class='day'>12</span>
-    </time>
-  </div>
-  <div class="grid__item four-fifths palm-one-whole">
-    <h1 class="gamma"><a href="/blog/2014/02/12/my-projects/">My Projects</a></h1>
-    
-    <hr class="divider">
-  </div>
-
-</div>
-    </article>
-  
-  
-  
-    <article>
-      
-
-<div class="grid">
-
-  <div class="grid__item one-fifth palm-one-whole">
     <time datetime="2014-02-11T10:19:39+08:00" pubdate>
       <span class='month'>Feb</span> <span class='day'>11</span>
     </time>
@@ -182,15 +161,30 @@
       </li>
     
       <li class="post">
-        <a href="/blog/2014/02/12/my-projects/">My Projects</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2014/02/11/github-pages/">GitHub Pages</a>
       </li>
     
   </ul>
 </section>
+
+<section id="github-repos" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">
+    GitHub Repos
+    
+    <small class="pull-right">
+      <a class="btn" href="//github.com/lihuiba" title="@lihuiba on GitHub" target="_blank">
+        <i class="icon-external-link"></i>
+      </a>
+    </small>
+    
+  </h1>
+  <ul id="gh_repos" class="divided">
+    <li class="loading">
+      <i class="icon-spinner icon-spin"></i>
+    </li>
+  </ul>
+</section>
+
 
 
 
@@ -228,6 +222,26 @@
 
 
 
+
+<script>
+  $(document).ready(function(){
+    if (!window.jXHR){
+      var jxhr = document.createElement('script');
+      jxhr.type = 'text/javascript';
+      jxhr.src = '/javascripts/libs/jXHR.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jxhr, s);
+    }
+
+    github.showRepos({
+      user: 'lihuiba',
+      count: 0,
+      skip_forks: true,
+      target: '#gh_repos'
+    });
+  });
+</script>
+<script src="/javascripts/github.js"></script>
 
 
 

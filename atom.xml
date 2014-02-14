@@ -4,7 +4,7 @@
   <title><![CDATA[Huiba Li]]></title>
   <link href="http://lihuiba.github.io/atom.xml" rel="self"/>
   <link href="http://lihuiba.github.io/"/>
-  <updated>2014-02-12T16:49:29+08:00</updated>
+  <updated>2014-02-14T10:28:10+08:00</updated>
   <id>http://lihuiba.github.io/</id>
   <author>
     <name><![CDATA[Huiba Li]]></name>
@@ -33,60 +33,6 @@ across an error. I type <code>git add .</code>, and I get:</p>
 
 
 <p>Done!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[My Projects]]></title>
-    <link href="http://lihuiba.github.io/blog/2014/02/12/my-projects/"/>
-    <updated>2014-02-12T10:48:27+08:00</updated>
-    <id>http://lihuiba.github.io/blog/2014/02/12/my-projects</id>
-    <content type="html"><![CDATA[<p><strong>VMThunder</strong></p>
-
-<p>Booting a large number of virtual machines in a minute!</p>
-
-<p>Python</p>
-
-<p><strong>flashcachegroup</strong></p>
-
-<p>Making flashcache to cache a group of disks with a single SSD</p>
-
-<p>Python</p>
-
-<p><strong>pcommands</strong></p>
-
-<p>Parallel commands on remote machine with precisely simultaneous start</p>
-
-<p>Python</p>
-
-<p><strong>dm-snap-fiemap</strong></p>
-
-<p>Adding fiemap ioctl to dm-snap to export extents in the snapshort target</p>
-
-<p>C</p>
-
-<p><strong>macencap</strong></p>
-
-<p>MAC Encapsulation</p>
-
-<p>C</p>
-
-<p><strong>SoftSAN</strong></p>
-
-<p>Block-level distributed storage system</p>
-
-<p>Python</p>
-
-<p><strong>dm-coa</strong></p>
-
-<p>A snapshot+cache module for device mapper
-C</p>
-
-<p><strong>KeepAwake</strong></p>
-
-<p>Keeping windows from sleeping.</p>
-
-<p>C#, .Net 2.0</p>
 ]]></content>
   </entry>
   

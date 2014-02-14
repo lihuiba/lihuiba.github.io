@@ -126,95 +126,6 @@ across an error. I type <code>git add .</code>, and I get:</p>
     <header>
   
   <h1 class="beta">
-    <a href="/blog/2014/02/12/my-projects/">My Projects</a>
-  </h1>
-  
-
-  
-  <div class="meta clearfix">
-    
-
-
-
-
-
-
-
-
-  
-
-
-<time class="pull-left" datetime="2014-02-12T10:48:27+08:00" pubdate data-updated="true"><i class="icon-calendar"></i> Feb 12<span>th</span>, 2014</time>
-    
-
-
-
-  
-
-    
-  </div>
-  
-</header>
-
-
-
-
-  <p><strong>VMThunder</strong></p>
-
-<p>Booting a large number of virtual machines in a minute!</p>
-
-<p>Python</p>
-
-<p><strong>flashcachegroup</strong></p>
-
-<p>Making flashcache to cache a group of disks with a single SSD</p>
-
-<p>Python</p>
-
-<p><strong>pcommands</strong></p>
-
-<p>Parallel commands on remote machine with precisely simultaneous start</p>
-
-<p>Python</p>
-
-<p><strong>dm-snap-fiemap</strong></p>
-
-<p>Adding fiemap ioctl to dm-snap to export extents in the snapshort target</p>
-
-<p>C</p>
-
-<p><strong>macencap</strong></p>
-
-<p>MAC Encapsulation</p>
-
-<p>C</p>
-
-<p><strong>SoftSAN</strong></p>
-
-<p>Block-level distributed storage system</p>
-
-<p>Python</p>
-
-<p><strong>dm-coa</strong></p>
-
-<p>A snapshot+cache module for device mapper
-C</p>
-
-<p><strong>KeepAwake</strong></p>
-
-<p>Keeping windows from sleeping.</p>
-
-<p>C#, .Net 2.0</p>
-
-
-  </article>
-  <hr>
-
-  
-  <article class="listing">
-    <header>
-  
-  <h1 class="beta">
     <a href="/blog/2014/02/11/github-pages/">GitHub Pages</a>
   </h1>
   
@@ -325,15 +236,30 @@ for detail.</p>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/02/12/my-projects/">My Projects</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2014/02/11/github-pages/">GitHub Pages</a>
       </li>
     
   </ul>
 </section>
+
+<section id="github-repos" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">
+    GitHub Repos
+    
+    <small class="pull-right">
+      <a class="btn" href="//github.com/lihuiba" title="@lihuiba on GitHub" target="_blank">
+        <i class="icon-external-link"></i>
+      </a>
+    </small>
+    
+  </h1>
+  <ul id="gh_repos" class="divided">
+    <li class="loading">
+      <i class="icon-spinner icon-spin"></i>
+    </li>
+  </ul>
+</section>
+
 
 
 
@@ -371,6 +297,26 @@ for detail.</p>
 
 
 
+
+<script>
+  $(document).ready(function(){
+    if (!window.jXHR){
+      var jxhr = document.createElement('script');
+      jxhr.type = 'text/javascript';
+      jxhr.src = '/javascripts/libs/jXHR.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jxhr, s);
+    }
+
+    github.showRepos({
+      user: 'lihuiba',
+      count: 0,
+      skip_forks: true,
+      target: '#gh_repos'
+    });
+  });
+</script>
+<script src="/javascripts/github.js"></script>
 
 
 

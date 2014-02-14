@@ -151,15 +151,30 @@ across an error. I type <code>git add .</code>, and I get:</p>
       </li>
     
       <li class="post">
-        <a href="/blog/2014/02/12/my-projects/">My Projects</a>
-      </li>
-    
-      <li class="post">
         <a href="/blog/2014/02/11/github-pages/">GitHub Pages</a>
       </li>
     
   </ul>
 </section>
+
+<section id="github-repos" class="aside-module grid__item one-whole lap-one-half">
+  <h1 class="title delta">
+    GitHub Repos
+    
+    <small class="pull-right">
+      <a class="btn" href="//github.com/lihuiba" title="@lihuiba on GitHub" target="_blank">
+        <i class="icon-external-link"></i>
+      </a>
+    </small>
+    
+  </h1>
+  <ul id="gh_repos" class="divided">
+    <li class="loading">
+      <i class="icon-spinner icon-spin"></i>
+    </li>
+  </ul>
+</section>
+
 
 
 
@@ -197,6 +212,26 @@ across an error. I type <code>git add .</code>, and I get:</p>
 
 
 
+
+<script>
+  $(document).ready(function(){
+    if (!window.jXHR){
+      var jxhr = document.createElement('script');
+      jxhr.type = 'text/javascript';
+      jxhr.src = '/javascripts/libs/jXHR.js';
+      var s = document.getElementsByTagName('script')[0];
+      s.parentNode.insertBefore(jxhr, s);
+    }
+
+    github.showRepos({
+      user: 'lihuiba',
+      count: 0,
+      skip_forks: true,
+      target: '#gh_repos'
+    });
+  });
+</script>
+<script src="/javascripts/github.js"></script>
 
 
 
