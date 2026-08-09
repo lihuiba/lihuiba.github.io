@@ -51,10 +51,10 @@ enableRobotsTXT = true
     [languages.zh]
         label  = "简体中文"
         locale = "zh-CN"
-        title  = "lihuiba 的博客"
+        title  = "云深不知处"
         weight = 1
         [languages.zh.params.sidebar]
-            subtitle = "记录技术与生活"
+            subtitle = "lihuiba 的博客"
         [[languages.zh.menu.main]]
             identifier = "publication"
             name       = "论文发表"
@@ -66,10 +66,10 @@ enableRobotsTXT = true
     [languages.en]
         label  = "English"
         locale = "en-US"
-        title  = "lihuiba's blog"
+        title  = "Deep in the clouds, I know not where."
         weight = 2
         [languages.en.params.sidebar]
-            subtitle = "Notes on tech and life"
+            subtitle = "lihuiba's blog"
         [[languages.en.menu.main]]
             identifier = "publication"
             name       = "Publications"
