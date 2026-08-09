@@ -63,11 +63,10 @@ enableRobotsTXT = true
         enabled  = true
         provider = "giscus"
 
-        # https://giscus.app 获取 repoID / categoryID 后填入，填好后评论自动启用
         [params.comments.giscus]
             repo             = "lihuiba/lihuiba.github.io"
             repoID           = "MDEwOlJlcG9zaXRvcnk2NzgxOTM="
-            category         = "General"
+            category         = "Announcements"
             categoryID       = "DIC_kwDOAApZMc4DC-a_"
             mapping          = "pathname"
             strict           = "1"

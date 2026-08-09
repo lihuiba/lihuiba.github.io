@@ -1,19 +1,56 @@
 {{- $giscus := .Site.Params.comments.giscus -}}
 {{- if and $giscus.repoID $giscus.categoryID }}
+{{- $giscusLangs := dict "zh" "zh-CN" -}}
+{{- $lang := default .Site.Language.Lang (index $giscusLangs .Site.Language.Lang) -}}
+{{- /* 中英文共用评论：term = 去掉语言前缀的页面路径（如 p/hello-world/），两种语言一致 */ -}}
+{{- $term := strings.TrimPrefix "/" .RelPermalink -}}
+{{- $term = strings.TrimPrefix (printf "%s/" .Site.Language.Lang) $term -}}
 <script src="https://giscus.app/client.js"
         data-repo="{{ $giscus.repo }}"
         data-repo-id="{{ $giscus.repoID }}"
         data-category="{{ $giscus.category }}"
         data-category-id="{{ $giscus.categoryID }}"
-        data-mapping="{{ $giscus.mapping | default "pathname" }}"
+        data-mapping="specific"
+        data-term="{{ $term }}"
         data-strict="{{ $giscus.strict | default "1" }}"
         data-reactions-enabled="{{ $giscus.reactionsEnabled | default "1" }}"
         data-emit-metadata="{{ $giscus.emitMetadata | default "0" }}"
         data-input-position="{{ $giscus.inputPosition | default "bottom" }}"
         data-theme="{{ $giscus.theme | default "light" }}"
-        data-lang="{{ .Site.Language.Lang }}"
+        data-lang="{{ $lang }}"
         data-loading="{{ $giscus.loading | default "lazy" }}"
         crossorigin="anonymous"
         async>
+</script>
+{{- $api := printf "https://giscus.app/api/discussions?repo=%s&repoId=%s&category=%s&categoryId=%s&term=%s&strict=%s&first=1&number=0&count=0"
+        $giscus.repo
+        (urlquery $giscus.repoID)
+        (urlquery $giscus.category)
+        (urlquery $giscus.categoryID)
+        (urlquery $term)
+        ($giscus.strict | default "1") -}}
+{{- $gotoText := default "Comment on GitHub →" (index (dict "zh" "前往 GitHub 评论本文 →") .Site.Language.Lang) -}}
+<p class="giscus-goto">
+    <a href="https://github.com/{{ $giscus.repo }}/discussions?discussions_q={{ $term }}"
+       data-api="{{ $api }}"
+       rel="noopener">{{ $gotoText }}</a>
+</p>
+<script>
+(function () {
+    var link = document.querySelector("p.giscus-goto a");
+    if (!link) return;
+    link.addEventListener("click", function (e) {
+        e.preventDefault();
+        var fallback = link.href;
+        fetch(link.dataset.api)
+            .then(function (r) { return r.json(); })
+            .then(function (d) {
+                window.location.href = (d && d.discussion && d.discussion.url) ? d.discussion.url : fallback;
+            })
+            .catch(function () {
+                window.location.href = fallback;
+            });
+    });
+})();
 </script>
 {{- end }}
