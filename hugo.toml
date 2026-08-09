@@ -14,6 +14,39 @@ enableRobotsTXT = true
     post = "/p/:slug/"
     page = "/:slug/"
 
+# 同一份 publications 内容挂载到中英两种语言
+# 注意：自定义 mounts 后 Hugo 默认挂载全部失效，需显式补回
+[module]
+    [[module.mounts]]
+        source = "content"
+        target = "content"
+    [[module.mounts]]
+        source = "assets"
+        target = "assets"
+    [[module.mounts]]
+        source = "layouts"
+        target = "layouts"
+    [[module.mounts]]
+        source = "static"
+        target = "static"
+    [[module.mounts]]
+        source = "data"
+        target = "data"
+    [[module.mounts]]
+        source = "i18n"
+        target = "i18n"
+    [[module.mounts]]
+        source = "archetypes"
+        target = "archetypes"
+    [[module.mounts]]
+        source = "contentShared/publications"
+        target = "content/page/publications"
+        lang   = "zh"
+    [[module.mounts]]
+        source = "contentShared/publications"
+        target = "content/page/publications"
+        lang   = "en"
+
 [languages]
     [languages.zh]
         label  = "简体中文"
@@ -22,6 +55,13 @@ enableRobotsTXT = true
         weight = 1
         [languages.zh.params.sidebar]
             subtitle = "记录技术与生活"
+        [[languages.zh.menu.main]]
+            identifier = "publication"
+            name       = "论文发表"
+            url        = "/publications/"
+            weight     = -65
+            [languages.zh.menu.main.params]
+                icon = "article"
 
     [languages.en]
         label  = "English"
@@ -30,10 +70,18 @@ enableRobotsTXT = true
         weight = 2
         [languages.en.params.sidebar]
             subtitle = "Notes on tech and life"
+        [[languages.en.menu.main]]
+            identifier = "publication"
+            name       = "Publications"
+            url        = "/en/publications/"
+            weight     = -65
+            [languages.en.menu.main.params]
+                icon = "article"
 
 [params]
     mainSections   = ["post"]
     rssFullContent = true
+    favicon        = "https://github.com/lihuiba.png"
 
     [params.footer]
         since = 2026
