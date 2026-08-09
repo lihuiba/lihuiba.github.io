@@ -1,0 +1,86 @@
+baseURL = "https://lihuiba.github.io/"
+theme = "hugo-theme-stack"
+
+defaultContentLanguage = "zh"
+defaultContentLanguageInSubdir = false
+hasCJKLanguage = true
+
+enableRobotsTXT = true
+
+[pagination]
+    pagerSize = 5
+
+[permalinks]
+    post = "/p/:slug/"
+    page = "/:slug/"
+
+[languages]
+    [languages.zh]
+        label  = "简体中文"
+        locale = "zh-CN"
+        title  = "lihuiba 的博客"
+        weight = 1
+        [languages.zh.params.sidebar]
+            subtitle = "记录技术与生活"
+
+    [languages.en]
+        label  = "English"
+        locale = "en-US"
+        title  = "lihuiba's blog"
+        weight = 2
+        [languages.en.params.sidebar]
+            subtitle = "Notes on tech and life"
+
+[params]
+    mainSections   = ["post"]
+    rssFullContent = true
+
+    [params.footer]
+        since = 2026
+
+    [params.sidebar]
+        emoji    = "📝"
+        subtitle = "记录技术与生活"
+
+    [params.colorScheme]
+        toggle = true
+
+    [params.article]
+        [params.article.license]
+            enabled = true
+            default  = "Licensed under [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)"
+
+    [params.widgets]
+        homepage = [
+            { type = "search" },
+            { type = "archives", params = { limit = 5 } },
+            { type = "categories", params = { limit = 10 } },
+            { type = "tag-cloud", params = { limit = 10 } },
+        ]
+        page = [{ type = "toc" }]
+
+    [params.comments]
+        enabled  = true
+        provider = "giscus"
+
+        # https://giscus.app 获取 repoID / categoryID 后填入，填好后评论自动启用
+        [params.comments.giscus]
+            repo             = "lihuiba/lihuiba.github.io"
+            repoID           = "MDEwOlJlcG9zaXRvcnk2NzgxOTM="
+            category         = "General"
+            categoryID       = "DIC_kwDOAApZMc4DC-a_"
+            mapping          = "pathname"
+            strict           = "1"
+            reactionsEnabled = "1"
+            emitMetadata     = "0"
+            inputPosition    = "bottom"
+            theme            = "light"
+            loading          = "lazy"
+
+[[menu.social]]
+    identifier = "github"
+    name       = "GitHub"
+    url        = "https://github.com/lihuiba"
+
+    [menu.social.params]
+        icon = "brand-github"
