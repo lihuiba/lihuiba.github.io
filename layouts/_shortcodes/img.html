@@ -1,0 +1,6 @@
+{{- $src := .Get "src" -}}
+{{- with .Page.Resources.GetMatch $src -}}
+<img src="{{ .RelPermalink }}" alt="{{ $.Get "alt" }}" style="width:{{ $.Get "width" | default "100%" }}; display:block; margin:0 auto">
+{{- else -}}
+    {{- errorf "img shortcode: resource %q not found in %s" $src $.Page.Path -}}
+{{- end -}}

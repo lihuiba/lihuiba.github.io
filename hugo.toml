@@ -116,12 +116,12 @@ enableRobotsTXT = true
             repoID           = "MDEwOlJlcG9zaXRvcnk2NzgxOTM="
             category         = "Announcements"
             categoryID       = "DIC_kwDOAApZMc4DC-a_"
-            mapping          = "pathname"
             strict           = "1"
             reactionsEnabled = "1"
             emitMetadata     = "0"
             inputPosition    = "bottom"
-            theme            = "light"
+            lightTheme       = "light"
+            darkTheme        = "dark"
             loading          = "lazy"
 
 [[menu.social]]

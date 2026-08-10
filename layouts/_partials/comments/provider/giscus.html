@@ -1,10 +1,10 @@
 {{- $giscus := .Site.Params.comments.giscus -}}
 {{- if and $giscus.repoID $giscus.categoryID }}
-{{- $giscusLangs := dict "zh" "zh-CN" -}}
-{{- $lang := default .Site.Language.Lang (index $giscusLangs .Site.Language.Lang) -}}
 {{- /* 中英文共用评论：term = 去掉语言前缀的页面路径（如 p/hello-world/），两种语言一致 */ -}}
 {{- $term := strings.TrimPrefix "/" .RelPermalink -}}
 {{- $term = strings.TrimPrefix (printf "%s/" .Site.Language.Lang) $term -}}
+{{- $lightTheme := $giscus.lightTheme | default "light" -}}
+{{- $darkTheme := $giscus.darkTheme | default "dark" -}}
 <script src="https://giscus.app/client.js"
         data-repo="{{ $giscus.repo }}"
         data-repo-id="{{ $giscus.repoID }}"
@@ -16,13 +16,13 @@
         data-reactions-enabled="{{ $giscus.reactionsEnabled | default "1" }}"
         data-emit-metadata="{{ $giscus.emitMetadata | default "0" }}"
         data-input-position="{{ $giscus.inputPosition | default "bottom" }}"
-        data-theme="{{ $giscus.theme | default "light" }}"
-        data-lang="{{ $lang }}"
+        data-theme="{{ $lightTheme }}"
+        data-lang="{{ .Site.Language.LanguageCode }}"
         data-loading="{{ $giscus.loading | default "lazy" }}"
         crossorigin="anonymous"
         async>
 </script>
-{{- $api := printf "https://giscus.app/api/discussions?repo=%s&repoId=%s&category=%s&categoryId=%s&term=%s&strict=%s&first=1&number=0&count=0"
+{{- $api := printf "https://giscus.app/api/discussions?repo=%s&repoId=%s&category=%s&categoryId=%s&term=%s&strict=%s&first=1"
         $giscus.repo
         (urlquery $giscus.repoID)
         (urlquery $giscus.category)
@@ -31,13 +31,13 @@
         ($giscus.strict | default "1") -}}
 {{- $gotoText := default "Comment on GitHub →" (index (dict "zh" "前往 GitHub 评论本文 →") .Site.Language.Lang) -}}
 <p class="giscus-goto">
-    <a href="https://github.com/{{ $giscus.repo }}/discussions?discussions_q={{ $term }}"
+    <a href="https://github.com/{{ $giscus.repo }}/discussions?discussions_q={{ urlquery $term }}"
        data-api="{{ $api }}"
        rel="noopener">{{ $gotoText }}</a>
 </p>
 <script>
 (function () {
-    var link = document.querySelector("p.giscus-goto a");
+    var link = document.currentScript.previousElementSibling.querySelector("a");
     if (!link) return;
     link.addEventListener("click", function (e) {
         e.preventDefault();
@@ -51,6 +51,28 @@
                 window.location.href = fallback;
             });
     });
+})();
+</script>
+<script>
+function setGiscusTheme(theme) {
+    var frame = document.querySelector("iframe.giscus-frame");
+    if (frame) {
+        frame.contentWindow.postMessage(
+            { giscus: { setConfig: { theme: theme } } },
+            "https://giscus.app"
+        );
+    }
+}
+(function () {
+    function handler() {
+        var scheme = document.documentElement.dataset.scheme;
+        setGiscusTheme(scheme === "light" ? "{{ $lightTheme }}" : "{{ $darkTheme }}");
+    }
+    window.addEventListener("message", function (e) {
+        if (e.origin !== "https://giscus.app") return;
+        handler();
+    });
+    window.addEventListener("onColorSchemeChange", handler);
 })();
 </script>
 {{- end }}
