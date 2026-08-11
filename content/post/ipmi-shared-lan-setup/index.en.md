@@ -3,8 +3,6 @@ title: "Setting Up IPMI on a Shared LAN Port"
 date: 2014-03-26T22:51:49+08:00
 description: "Multiplexing the eth0 port with VLANs to run IPMI over the shared network interface"
 slug: ipmi-shared-lan-setup
-categories:
-    - Tech
 tags:
     - IPMI
     - Server

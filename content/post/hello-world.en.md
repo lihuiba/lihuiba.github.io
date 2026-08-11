@@ -5,8 +5,6 @@ description: "The first post of this blog"
 slug: hello-world
 tags:
     - Notes
-categories:
-    - Blog
 draft: false
 ---
 

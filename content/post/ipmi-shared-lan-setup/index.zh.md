@@ -3,8 +3,6 @@ title: "共享端口的IPMI设置"
 date: 2014-03-26T22:51:49+08:00
 description: "通过 VLAN 复用 eth0 端口，在共享网口上使用 IPMI"
 slug: ipmi-shared-lan-setup
-categories:
-    - 技术
 tags:
     - IPMI
     - 服务器

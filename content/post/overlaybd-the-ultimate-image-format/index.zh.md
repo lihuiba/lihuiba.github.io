@@ -2,7 +2,6 @@
 title: "Overlaybd——面向所有负载的终极镜像格式"
 date: 2026-08-10
 slug: overlaybd-the-ultimate-image-format
-categories: ["技术"]
 tags: ["overlaybd", "镜像", "容器", "虚拟化", "虚拟机", "沙箱"]
 ---
 

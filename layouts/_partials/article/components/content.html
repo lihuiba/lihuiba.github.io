@@ -1,0 +1,15 @@
+<section class="article-content">
+    {{/* 拼接中文字符之间的源码换行：HTML 空白折叠会把换行变成一个空格，中文行间出现多余空隙；pre 代码块除外 */}}
+    {{ $html := .Content }}
+    {{ $pres := findRE "(?s)<pre.*?</pre>" $html }}
+    {{ range $i, $pre := $pres }}
+        {{ $html = strings.Replace $html $pre (printf "CJKJOINPRE%d" $i) }}
+    {{ end }}
+    {{ $html = $html | replaceRE `([^\x00-\x7F])[ \t]*\n[ \t]*([^\x00-\x7F])` `${1}${2}` | replaceRE `([^\x00-\x7F])[ \t]*\n[ \t]*([^\x00-\x7F])` `${1}${2}` }}
+    {{ range $i, $pre := $pres }}
+        {{ $html = strings.Replace $html (printf "CJKJOINPRE%d" $i) $pre }}
+    {{ end }}
+    <!-- Refer to https://discourse.gohugo.io/t/responsive-tables-in-markdown/10639/5 -->
+    {{ $wrappedTable := printf "<div class=\"table-wrapper\">${1}</div>" }}
+    {{ $html | replaceRE "(<table>(?:.|\n)+?</table>)" $wrappedTable | safeHTML }}
+</section>

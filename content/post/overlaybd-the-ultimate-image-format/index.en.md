@@ -2,8 +2,7 @@
 title: "Overlaybd — The Ultimate Image Format for Every Workload"
 date: 2026-08-10
 slug: overlaybd-the-ultimate-image-format
-categories: ["Tech"]
-tags: ["overlaybd", "container", "virtualization", "VM", "sandbox", "image"]
+tags: ["overlaybd", "image", "container", "virtualization", "VM", "sandbox"]
 ---
 
 Containers, VMs, and agent sandboxes all start the same way: from an

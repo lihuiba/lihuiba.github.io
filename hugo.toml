@@ -14,6 +14,10 @@ enableRobotsTXT = true
     post = "/p/:slug/"
     page = "/:slug/"
 
+# 只保留 tags，不生成 categories 分类页
+[taxonomies]
+    tag = "tags"
+
 # 同一份 publications 内容挂载到中英两种语言
 # 注意：自定义 mounts 后 Hugo 默认挂载全部失效，需显式补回
 [module]
@@ -102,7 +106,6 @@ enableRobotsTXT = true
         homepage = [
             { type = "search" },
             { type = "archives", params = { limit = 5 } },
-            { type = "categories", params = { limit = 10 } },
             { type = "tag-cloud", params = { limit = 10 } },
         ]
         page = [{ type = "toc" }]

@@ -5,8 +5,6 @@ description: "博客的第一篇文章"
 slug: hello-world
 tags:
     - 随笔
-categories:
-    - 博客
 draft: false
 ---
 
