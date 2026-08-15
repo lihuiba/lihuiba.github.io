@@ -45,11 +45,8 @@ enableRobotsTXT = true
     [[module.mounts]]
         source = "contentShared/publications"
         target = "content/page/publications"
-        lang   = "zh"
-    [[module.mounts]]
-        source = "contentShared/publications"
-        target = "content/page/publications"
-        lang   = "en"
+        [module.mounts.sites.matrix]
+            languages = ["zh", "en"]
 
 [languages]
     [languages.zh]

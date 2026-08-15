@@ -5,7 +5,7 @@
 {{- $term = strings.TrimPrefix (printf "%s/" .Site.Language.Lang) $term -}}
 {{- $lightTheme := $giscus.lightTheme | default "light" -}}
 {{- $darkTheme := $giscus.darkTheme | default "dark" -}}
-{{- $giscusLang := default "en" (index (dict "zh-CN" "zh-CN") .Site.Language.LanguageCode) -}}
+{{- $giscusLang := default "en" (index (dict "zh-CN" "zh-CN") .Site.Language.Locale) -}}
 <script src="https://giscus.app/client.js"
         data-repo="{{ $giscus.repo }}"
         data-repo-id="{{ $giscus.repoID }}"

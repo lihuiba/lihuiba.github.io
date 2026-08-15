@@ -1,6 +1,7 @@
 ---
 title: "Overlaybd——面向所有负载的终极镜像格式"
 date: 2026-08-10
+description: "容器用 OCI 分层，虚拟机用 qcow2，各自背着只随规模增长的结构性成本。Overlaybd 用一种块设备镜像格式覆盖所有负载：分层、按需加载、可寻址压缩，亚秒级冷启动，经众多公司生产环境多年历练。"
 slug: overlaybd-the-ultimate-image-format
 tags: ["overlaybd", "镜像", "容器", "虚拟化", "虚拟机", "沙箱"]
 ---

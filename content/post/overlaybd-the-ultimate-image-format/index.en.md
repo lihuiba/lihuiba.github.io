@@ -1,6 +1,7 @@
 ---
 title: "Overlaybd — The Ultimate Image Format for Every Workload"
 date: 2026-08-10
+description: "OCI tar layers for containers, qcow2 for VMs — both carry structural costs. Overlaybd is a layered, lazily-loaded, seekably-compressed block-device image format for every workload: sub-second cold starts, proven in production across many companies."
 slug: overlaybd-the-ultimate-image-format
 tags: ["overlaybd", "image", "container", "virtualization", "VM", "sandbox"]
 ---

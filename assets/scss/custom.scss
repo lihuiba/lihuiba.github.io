@@ -1,0 +1,8 @@
+:root {
+    --code-background-color: rgba(0, 0, 0, 0.1);
+    --code-text-color: #000;
+
+    &[data-scheme="dark"] {
+        --code-background-color: rgba(39, 40, 34, 0.5);
+    }
+}
