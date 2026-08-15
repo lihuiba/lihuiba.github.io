@@ -3,7 +3,7 @@ title: "Stackful Coroutine Made Fast"
 date: 2024-10-14
 slug: stackful-coroutine-made-fast
 tags: ["并发", "协程", "photon", "c++", "性能"]
-description: "Stackful 协程并非天生慢——慢的是现有实现。借助上下文感知的上下文切换（CACS），在调用点只保存最少必要的寄存器，stackful 协程在多数场景下反超 stackless。已在 Photon 中实现。"
+description: "Stackful 协程并非天生慢——慢的是现有实现。借助上下文感知的上下文切换（CACS），在调用点只保存最少必要的寄存器，stackful 协程在多数场景下反超 stackless，在其他场景持平。已在 Photon 中实现。"
 ---
 
 ## 摘要
@@ -98,4 +98,4 @@ Photon（一个基于协程的成熟 libOS）中实现，该调用约定则在 C
 
 ---
 
-阅读全文：<https://photonlibos.github.io/blog/stackful-coroutine-made-fast>
+## [阅读全文](https://photonlibos.github.io/blog/stackful-coroutine-made-fast)

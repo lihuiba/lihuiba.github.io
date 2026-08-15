@@ -2,8 +2,8 @@
 title: "Stackful Coroutine Made Fast"
 date: 2024-10-14
 slug: stackful-coroutine-made-fast
-tags: ["coroutine", "photon", "c++", "performance"]
-description: "Stackful coroutine is not intrinsically slow — current implementations are. With context-aware context switching (CACS), saving only the minimal registers per caller/callee context, stackful outperforms stackless in most cases. Implemented in Photon."
+tags: ["concurrency", "coroutine", "photon", "c++", "performance"]
+description: "Stackful coroutine is not intrinsically slow — current implementations are. With context-aware context switching (CACS), saving only the minimal registers per caller/callee context, stackful outperforms stackless in most cases and ties otherwise. Implemented in Photon."
 ---
 
 ## Abstract
@@ -139,4 +139,4 @@ The contributions of this paper are as follows:
 
 ---
 
-Read the full paper: <https://photonlibos.github.io/blog/stackful-coroutine-made-fast>
+## [Read the full paper](https://photonlibos.github.io/blog/stackful-coroutine-made-fast)
