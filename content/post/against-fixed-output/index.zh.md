@@ -2,7 +2,7 @@
 title: "Fixed-Output Compression 的神话"
 date: 2026-08-17
 slug: against-fixed-output
-tags: ["存储", "压缩", "fixed-output"]
+tags: ["存储", "压缩", "fixed-output", "神话"]
 description: "Fixed-output compression——变长输入、定长输出的压缩布局——曾被赋予消除读放大、对齐 I/O、提高压缩率、节省内存等优势。逐项归因之后：这些优势或来自粒度选择，或来自索引与解压器的实现，或只在限定口径里成立，或查无实据；而代价是格式级的、永久的。结论是客气但彻底的：作为一项格式设计决策，fixed-output 不值得采用。"
 ---
 

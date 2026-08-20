@@ -2,7 +2,7 @@
 title: "The Myth of Fixed-Output Compression"
 date: 2026-08-17
 slug: against-fixed-output
-tags: ["storage", "compression", "fixed-output"]
+tags: ["storage", "compression", "fixed-output", "myth"]
 description: "Fixed-output compression — variable-length input stuffed into fixed-size output blocks — was credited with eliminating read amplification, aligning I/O, improving compression ratio, and saving memory. Term-by-term attribution finds otherwise: these benefits belong to granularity choices, to the index and the decompressor, hold only inside a restricted framing, or cannot be found in measurement at all — while the costs are format-level and permanent. The conclusion is polite but total: as a format design decision, fixed-output is not worth adopting."
 ---
 
