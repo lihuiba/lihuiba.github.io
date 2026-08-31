@@ -247,3 +247,37 @@ organizational inertia, and a signaling equilibrium.
 
 Thin value wrapped in a thick narrative is the standard recipe for
 a myth. And this myth should end.
+
+-------------------
+
+## Suppplement on 2026.08.31
+**In-house cards make VM migration easy** — and for a long time
+that was true. The obstacle was never "in-house versus merchant";
+it is whether device state can stay consistent across migration:
+with bare VF passthrough, queue contexts live inside the NIC,
+and exporting them completely and restoring them on the new
+host's card was beyond what merchant hardware could do — high
+performance and migratability thus did not go together. The
+in-house solution was to have a program hold the state: the
+guest's device is provided by firmware on the card (ena under
+Nitro, virtio under X-Dragon), and at migration time the new
+host's card simply instantiates it again, and the guest notices
+nothing. And it need not be a DPU: any card that can impersonate
+the guest's device will do. For years only the in-house builders
+could walk this path.
+
+That page has turned, on both roads. Merchant cards learned to
+impersonate early — mlx5's vDPA mode
+([VDPA support for Mellanox ConnectX devices](https://lwn.net/Articles/828042/))
+has presented virtio devices to guests since 2020, with the data
+path in hardware; and for those who stayed with bare VF
+passthrough, the mlx5 vfio migration variant driver landed in the
+mainline kernel in 2022
+([Add mlx5 live migration driver](https://lwn.net/Articles/873315/)),
+and NVIDIA's official documentation now provides full
+[SR-IOV Live Migration](https://networking-docs.nvidia.com/mlnxofedswum/24.10-5.1.6.1lts/sr-iov-live-migration)
+support — with state export and restore in place, merchant NIC
+VFs can migrate too. **This once-exclusive
+value has been worn flat by the merchant path — what remains is
+the head start and roadmap ownership: procurement, not
+technology.**

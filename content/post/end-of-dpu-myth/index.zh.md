@@ -196,3 +196,36 @@ DPU 神话的完整结构是：七项价值主张，五项经不起
 证据，它也可能只是历史决策、组织惯性和信号均衡的证据。
 
 薄收益加厚叙事，是神话的标准配方。而这个神话该结束了。
+
+--------------------------------
+
+## 2026.08.31 补充
+
+**自研卡便于虚拟机迁移**——这件事在相当长的
+时间里是真的。障碍从来不在"自研还是商用"，
+而在设备状态能否随迁移保持一致：裸 VF 直通
+时，队列上下文驻在网卡内部，要把它完整导出、
+在新宿主的卡上原样恢复，商用硬件当年做不到
+——高性能与可迁移于是不可兼得。自研卡的解法
+是让状态由程序持有：guest 的设备由卡上的固件
+提供（Nitro 之下是 ena，神龙之下是 virtio），
+迁移时让新宿主的卡重新实例化一次即可，
+guest 无感。而且未必是 DPU，只要卡能把
+guest 的设备演出来就够。这条路当年只有
+自研者走得通。
+
+这一页也翻过去了，两条路都被商用卡走通：
+早先会"演"——mlx5 的 vDPA 模式
+（[VDPA support for Mellanox ConnectX devices](https://lwn.net/Articles/828042/)）
+2020 年起就向 guest 呈现 virtio 设备，数据
+路径在卡上硬件；坚持直通裸 VF 的，mlx5 的
+vfio migration variant driver 2022 年合入
+主线内核
+（[Add mlx5 live migration driver](https://lwn.net/Articles/873315/)），
+NVIDIA 官方文档已提供完整的
+[SR-IOV Live Migration](https://networking-docs.nvidia.com/mlnxofedswum/24.10-5.1.6.1lts/sr-iov-live-migration)
+支持——状态的导出与恢复补齐了，商用卡的 VF
+从此也能迁移。
+**这笔当年独门的价值被商用路径磨平——剩下的
+差别只有时间差与路线图归属，那是采购学，
+不是技术。**
