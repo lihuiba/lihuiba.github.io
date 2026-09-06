@@ -18,6 +18,11 @@ enableRobotsTXT = true
 [taxonomies]
     tag = "tags"
 
+# 招聘页以原生 <img> 内嵌二维码（绕开主题 gallery 包装），需允许 markdown 中的 raw HTML
+[markup]
+    [markup.goldmark.renderer]
+        unsafe = true
+
 # 同一份 publications 内容挂载到中英两种语言
 # 注意：自定义 mounts 后 Hugo 默认挂载全部失效，需显式补回
 [module]
@@ -60,7 +65,7 @@ enableRobotsTXT = true
             identifier = "publication"
             name       = "论文发表"
             url        = "/publications/"
-            weight     = -65
+            weight     = -85
             [languages.zh.menu.main.params]
                 icon = "article"
 
@@ -75,7 +80,7 @@ enableRobotsTXT = true
             identifier = "publication"
             name       = "Publications"
             url        = "/en/publications/"
-            weight     = -65
+            weight     = -85
             [languages.en.menu.main.params]
                 icon = "article"
 
