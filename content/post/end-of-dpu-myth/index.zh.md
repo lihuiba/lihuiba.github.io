@@ -215,7 +215,7 @@ guest 的设备演出来就够。这条路当年只有
 自研者走得通。
 
 这一页也翻过去了，两条路都被商用卡走通：
-早先会"演"——mlx5 的 vDPA 模式
+早先一条走软件协议界面——mlx5 的 vDPA 模式
 （[VDPA support for Mellanox ConnectX devices](https://lwn.net/Articles/828042/)）
 2020 年起就向 guest 呈现 virtio 设备，数据
 路径在卡上硬件；坚持直通裸 VF 的，mlx5 的

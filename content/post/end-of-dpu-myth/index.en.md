@@ -250,7 +250,8 @@ a myth. And this myth should end.
 
 -------------------
 
-## Suppplement on 2026.08.31
+## Supplement on 2026.08.31
+
 **In-house cards make VM migration easy** — and for a long time
 that was true. The obstacle was never "in-house versus merchant";
 it is whether device state can stay consistent across migration:
@@ -266,8 +267,8 @@ nothing. And it need not be a DPU: any card that can impersonate
 the guest's device will do. For years only the in-house builders
 could walk this path.
 
-That page has turned, on both roads. Merchant cards learned to
-impersonate early — mlx5's vDPA mode
+That page has turned, on both roads. The earlier one took the
+software-protocol interface path — mlx5's vDPA mode
 ([VDPA support for Mellanox ConnectX devices](https://lwn.net/Articles/828042/))
 has presented virtio devices to guests since 2020, with the data
 path in hardware; and for those who stayed with bare VF

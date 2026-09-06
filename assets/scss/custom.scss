@@ -6,3 +6,9 @@
         --code-background-color: rgba(39, 40, 34, 0.5);
     }
 }
+
+/// 左侧菜单文字纯黑（主题默认灰色 --body-text-color）；
+/// 当前项保留主题的高亮色，暗色模式不受影响
+:root:not([data-scheme="dark"]) #main-menu li:not(.current) a {
+    color: #000;
+}
