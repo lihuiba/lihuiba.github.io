@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 460" role="img" aria-label="系统结构图">
+  <rect x="0" y="0" width="960" height="460" rx="12" fill="#fcfcfe" stroke="#d8d8e0"/>
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Noto Sans CJK SC', sans-serif" fill="#212121">
+    <!-- zones: two rows each, rows horizontally aligned -->
+    <g fill="#f4f4f9" stroke="#c9c9d6" stroke-dasharray="6 4">
+      <rect x="40" y="20" width="420" height="244" rx="10"/>
+      <rect x="500" y="20" width="420" height="244" rx="10"/>
+    </g>
+    <g font-size="14" fill="#747474">
+      <text x="56" y="44">host 区</text>
+      <text x="516" y="44">guests 区</text>
+    </g>
+    <!-- row 1: taller boxes -->
+    <g stroke="#34495e" stroke-width="1.5" fill="#ffffff">
+      <rect x="60" y="59" width="390" height="80" rx="8"/>
+      <rect x="520" y="59" width="120" height="80" rx="8"/>
+      <rect x="650" y="59" width="120" height="80" rx="8"/>
+      <rect x="780" y="59" width="120" height="80" rx="8"/>
+    </g>
+    <g font-size="13" text-anchor="middle">
+      <text x="255" y="87">控制面 VM</text>
+      <text x="580" y="91">用户 VM</text>
+      <text x="710" y="91">用户 VM</text>
+      <text x="840" y="91">用户 VM</text>
+    </g>
+    <g font-size="10.5" fill="#747474" text-anchor="middle">
+      <text x="255" y="105">零状态 · 承载控制面主体</text>
+      <text x="255" y="121">网卡 VF 直通 · 重启期间转发不断</text>
+      <text x="580" y="113">网卡 VF 直通</text>
+      <text x="710" y="113">网卡 VF 直通</text>
+      <text x="840" y="113">网卡 VF 直通</text>
+    </g>
+    <!-- virtio note between rows (guests zone) -->
+    <g font-size="12" fill="#747474" text-anchor="middle">
+      <text x="710" y="158">通过 virtio 联系</text>
+    </g>
+    <!-- row 2: compressed boxes -->
+    <g stroke="#34495e" stroke-width="1.5" fill="#ffffff">
+      <rect x="60" y="172" width="390" height="56" rx="8"/>
+      <rect x="520" y="172" width="190" height="56" rx="8"/>
+      <rect x="720" y="172" width="190" height="56" rx="8"/>
+    </g>
+    <g font-size="13" text-anchor="middle">
+      <text x="255" y="196">控制面守护进程</text>
+      <text x="615" y="196">块存储服务 VM</text>
+      <text x="815" y="196">文件存储服务 VM</text>
+    </g>
+    <g font-size="10.5" fill="#747474" text-anchor="middle">
+      <text x="255" y="214">零状态 · 写流表 · 执行具体操作</text>
+      <text x="615" y="214">网卡 VF 直通</text>
+      <text x="815" y="214">网卡 VF 直通</text>
+    </g>
+    <!-- zone captions -->
+    <g font-size="10.5" fill="#747474" text-anchor="middle">
+      <text x="255" y="252">网卡 PF 归瘦核；流表住硅片</text>
+      <text x="710" y="252">无状态：崩溃 = 升级 = 重启；台数按需；状态在集群控制面（节点外）</text>
+    </g>
+    <!-- thin core: spans both zones, above hardware -->
+    <g stroke="#34495e" stroke-width="1.5" fill="#ffffff">
+      <rect x="40" y="284" width="880" height="64" rx="8"/>
+    </g>
+    <g font-size="15" text-anchor="middle">
+      <text x="480" y="310">瘦核：裁剪 Linux + KVM</text>
+    </g>
+    <g font-size="10.5" fill="#747474" text-anchor="middle">
+      <text x="480" y="332">系统 firmware：版本化发布演进，livepatch 为安全阀；持网卡 PF 与启动介质；CPU/内存虚拟化 · IOMMU · 中断注入</text>
+    </g>
+    <!-- hardware layer -->
+    <g stroke="#34495e" stroke-width="1.5" fill="#ffffff">
+      <rect x="40" y="378" width="260" height="60" rx="8"/>
+      <rect x="320" y="378" width="260" height="60" rx="8"/>
+      <rect x="600" y="378" width="320" height="60" rx="8"/>
+    </g>
+    <g font-size="15" text-anchor="middle">
+      <text x="170" y="413">CPU</text>
+      <text x="450" y="413">内存</text>
+      <text x="760" y="403">网卡</text>
+    </g>
+    <g font-size="10.5" fill="#747474" text-anchor="middle">
+      <text x="760" y="423">eswitch 流表 = 数据面</text>
+    </g>
+  </g>
+</svg>
